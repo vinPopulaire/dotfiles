@@ -20,6 +20,9 @@ Plugin 'bling/vim-airline'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-commentary'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-ragtag'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -114,6 +117,10 @@ nnoremap <leader>a :Ag
 " emmet configurations
 let g:user_emmet_leader_key=','
 
+" ragTag configurations
+imap <leader>, <C-X>=
+imap <leader>. <C-X>-
+
 " Mappings to access buffers
 set hidden
 
@@ -133,6 +140,9 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" ragtag
+let g:ragtag_global_maps = 1
 
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
