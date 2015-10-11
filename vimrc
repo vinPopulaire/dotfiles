@@ -31,6 +31,9 @@ filetype plugin indent on    " required
 set t_Co=256    " set the terminal to 256 color
 colorscheme railscasts    " awesome colorscheme
 
+set lines=50 columns=100
+set guifont=Menlo:h15 
+
 syntax on	  " enable syntax processing
 
 set number    " show line numbers
