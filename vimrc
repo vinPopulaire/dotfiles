@@ -23,6 +23,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-endwise'
+Plugin 'vim-ruby/vim-ruby'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,9 +58,12 @@ if has("autocmd")
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType eruby setlocal ts=2 sts=2 sw=2 expandtab
  
     autocmd BufNewFile,BufRead *.rss setfiletype xml
 endif
+
+runtime macros/matchit.vim
 
 set cursorline  " highlight current line
 set colorcolumn=80,120 " highlight columns 80 and 120
@@ -98,8 +103,13 @@ nnoremap ^ <nop>
 " highlight last inserted text
 nnoremap gV `[v`]
 
-" Ctrl-c is escape
-inoremap <leader>q <esc>
+" jk is escape
+inoremap jk <esc>
+
+" save with Ctrl-s
+inoremap <c-s> <esc>:update<cr>
+vnoremap <c-s> <esc>:update<cr>
+noremap <c-s> :update<cr>
 
 " toggle gundo
 nnoremap <leader>u :GundoToggle<CR>
