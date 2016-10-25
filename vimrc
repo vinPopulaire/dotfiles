@@ -25,16 +25,24 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+" Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+set encoding=utf-8 " The encoding displayed.
+set fileencoding=utf-8 "The encoding written to file.
+
+set grepprg=grep\ -nH\ $*
+
 set t_Co=256    " set the terminal to 256 color
 colorscheme railscasts    " awesome colorscheme
 
 set lines=50 columns=100
-set guifont=Menlo:h15 
+"set guifont=Menlo:h15 
 
 syntax on	  " enable syntax processing
 
@@ -51,6 +59,7 @@ filetype indent on  " load filetype-specific indent files
 if has("autocmd")
     filetype on
     autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+    autocmd BufNewFile,BufRead *.html set filetype=htmldjango
     autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     
@@ -59,6 +68,9 @@ if has("autocmd")
     autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
     autocmd FileType eruby setlocal ts=2 sts=2 sw=2 expandtab
+
+    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab ai
+    autocmd FileType python nnoremap <buffer> <F9> :w<CR>:exec '!python' shellescape(@%, 1)<cr>
  
     autocmd BufNewFile,BufRead *.rss setfiletype xml
 endif
@@ -103,13 +115,8 @@ nnoremap ^ <nop>
 " highlight last inserted text
 nnoremap gV `[v`]
 
-" jk is escape
-inoremap jk <esc>
-
-" save with Ctrl-s
-inoremap <c-s> <esc>:update<cr>
-vnoremap <c-s> <esc>:update<cr>
-noremap <c-s> :update<cr>
+" save with <leader>w 
+noremap <leader>w :w<CR>
 
 " toggle gundo
 nnoremap <leader>u :GundoToggle<CR>
@@ -127,12 +134,9 @@ let NERDTreeIgnore = ['\.pyc$', 'build', 'venv', 'egg', 'egg-info/', 'dist', 'do
 " open ag.vim
 nnoremap <leader>a :Ag
 
-" emmet configurations
-let g:user_emmet_leader_key=','
-
 " ragTag configurations
-imap <leader>, <C-X>=
-imap <leader>. <C-X>-
+imap ,, <C-X>=
+imap ,. <C-X>-
 
 " Mappings to access buffers
 set hidden
@@ -156,6 +160,22 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ragtag
 let g:ragtag_global_maps = 1
+
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_utilsnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language 's keywords
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger        = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger  = "<c-p>"
+let g:UltiSnipsListSnippets         = "<c-k>" " List possible snippets based on current file
+
+" latex
+let g:tex_flavor='latex'
 
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
