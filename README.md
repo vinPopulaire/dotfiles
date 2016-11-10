@@ -1,1 +1,5 @@
-# dotfiles
+# Dotfiles
+
+Dotfiles for
+- vim
+- neovim
