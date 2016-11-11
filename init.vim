@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdTree'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'ludovicchabant/vim-gutentags'
 
