@@ -3,3 +3,4 @@
 Dotfiles for
 - vim
 - neovim
+- tmux
