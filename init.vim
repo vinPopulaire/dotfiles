@@ -30,6 +30,7 @@ call plug#end()
 colorscheme railscasts " awesome colorsheme
 
 set number " show line numbers
+set relativenumber
 set showcmd " show command in bottom bar
 
 set tabstop=2 " number of visual spaces per TAB
@@ -74,9 +75,10 @@ map <leader>q :nohl<CR>
 " toggle folding
 nnoremap <leader>z za
 
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+" make gj/gk move by virtual lines when used without a count, and by physical
+" lines when used with a count
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " move to beginning/end of line
 nnoremap B ^
