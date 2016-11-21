@@ -30,6 +30,7 @@ call plug#end()
 colorscheme railscasts " awesome colorsheme
 
 set number " show line numbers
+set relativenumber
 set showcmd " show command in bottom bar
 
 set tabstop=2 " number of visual spaces per TAB
