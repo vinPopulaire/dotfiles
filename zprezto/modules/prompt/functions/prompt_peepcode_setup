@@ -50,7 +50,7 @@ function prompt_peepcode_setup {
 
   # Define prompts.
   PROMPT="
-%F{magenta}%n %F{normal}at %F{blue}%m %F{normal}in %F{yellow}%~ %F{normal}C: %F{red}%?
+%F{magenta}%n %F{normal}at %F{blue}%m %F{normal}in %F{yellow}%~ %F{normal}
 %(?.%F{green}${1:-☻ }%f.%F{red}${1:-☻ }%f) "
 RPROMPT='${ruby_info[version]}${git_info[rprompt]}'
 
