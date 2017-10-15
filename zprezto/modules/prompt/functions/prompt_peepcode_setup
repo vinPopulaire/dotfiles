@@ -25,7 +25,7 @@ function prompt_peepcode_precmd {
 function prompt_peepcode_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
-  prompt_opts=(cr percent subst)
+  prompt_opts=(cr percent sp subst)
 
   # Load required functions.
   autoload -Uz add-zsh-hook
@@ -37,12 +37,12 @@ function prompt_peepcode_setup {
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'no'
   zstyle ':prezto:module:git:info:action' format ' +%s'
-  zstyle ':prezto:module:git:info:branch' format ' %F{8}%b%f'
+  zstyle ':prezto:module:git:info:branch' format ' %F{normal}%b%f'
   zstyle ':prezto:module:git:info:commit' format ' %F{white}%.7c%f'
   zstyle ':prezto:module:git:info:indexed' format ' '
   zstyle ':prezto:module:git:info:unindexed' format ' '
   zstyle ':prezto:module:git:info:untracked' format ' '
-  zstyle ':prezto:module:git:info:dirty' format ' %F{8}✗%f'
+  zstyle ':prezto:module:git:info:dirty' format ' %F{normal}✗%f'
   zstyle ':prezto:module:git:info:keys' format 'rprompt' '%b%c%s%D'
 
   # Set ruby-info parameters.
