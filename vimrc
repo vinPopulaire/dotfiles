@@ -1,40 +1,78 @@
+set nocompatible
+filetype off
+set showtabline=0
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'simnalamburt/vim-mundo'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-easy-align'
-Plug 'hynek/vim-python-pep8-indent'
-
-Plug 'jpo/vim-railscasts-theme'
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'mattn/emmet-vim'
+" Add plugins here
+"-------=== Code/Project navigation ===-------
 Plug 'scrooloose/nerdTree'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plug 'Valloric/MatchTagAlways'
+Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'lervag/vimtex'
-Plug 'rust-lang/rust.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'severin-lemaignan/vim-minimap'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'neomake/neomake'                    " Asynchronous Linting and Make Framework
+Plug 'Shougo/deoplete.nvim'               " Asynchronous Completion
+Plug 'roxma/nvim-yarp'                    " Deoplete Dependency #1
+Plug 'roxma/vim-hug-neovim-rpc'           " Deoplete Dependency #2
+Plug 'simnalamburt/vim-mundo'
+" Plug 'severin-lemaignan/vim-minimap'
 
-Plug 'tpope/vim-commentary'
+"-------=== Other ===-------
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sensible'
+Plug 'yuttie/comfortable-motion.vim'
+" Plug 'jpo/vim-railscasts-theme'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'luochen1990/rainbow'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-sensible'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-easy-align'
+Plug 'w0rp/ale'
+
+"-------------------=== Python  ===-----------------------------
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'mitsuhiko/vim-python-combined'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'zchee/deoplete-jedi'
+
+"-------------------=== Elixir  ===-----------------------------
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+Plug 'slashmili/alchemist.vim'
+
+"-------=== Snippets ===-------
+Plug 'mattn/emmet-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+"-------=== Latex ===-------
+Plug 'lervag/vimtex'
+
+"-------=== Other languages ===-------
+Plug 'rust-lang/rust.vim'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
 " colorscheme railscasts " awesome colorsheme
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
+colorscheme gruvbox
+
+set encoding=utf-8
+let base16colorspace=256
+set t_Co=256                                " 256 colors
+set guifont=mononoki\ Nerd\ Font\ 18
+" colorscheme base16-default-dark             " set vim colorscheme
+let g:airline_theme='base16_spacemacs'             " set airline theme
+syntax enable                               " enable syntax highlighting
 
 set number " show line numbers
 set relativenumber
@@ -128,9 +166,25 @@ nnoremap <leader>bq :bp <BAR> bd #<CR>
   imap ,. <C-X>-
 " }}}
 
+" gutentags {{{ 
+  let g:gutentags_cache_dir = '~/.tags_cache'
+" }}}
+
 " delimitMate {{{
   let delimitMate_expand_cr = 2
   let delimitMate_expand_space = 1 " {|} => { | }
+" }}}
+
+" deoplete {{{
+  let g:deoplete#enable_at_startup = 1
+" }}}
+
+" alchemist {{{
+  let g:alchemist_tag_disable = 1
+" }}}
+
+"  rainbow {{{
+  let g:rainbow_active = 1
 " }}}
 
 " vim-easy-align {{{
@@ -140,28 +194,12 @@ nnoremap <leader>bq :bp <BAR> bd #<CR>
   nmap ga <Plug>(EasyAlign)
 " }}}
 
-" vim-indent-guides {{{ NOT WORKING DUE TO CHOICE OF COLORSCHEME
-  let g:indent_guides_default_mapping = 0
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_start_level = 2
-  let g:indent_guides_exclude_filetypes = ['help', 'startify', 'man', 'rogue']
-  let g:indent_guides_auto_colors = 0
-" }}}
-
-" YouCompleteMe
-  let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
-  let g:ymc_autoclose_preview_window_after_completion = 1
-  let g:ymc_seed_identifiers_with_syntax = 1 " Completion for programming language's keywords
-  let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-  let g:ymc_complete_in_strings = 1 " Completion in strings
-  let g:ymc_complete_in_comments = 1 " Completion in comments
-
 " NerdTree {{{
   map <c-n> :NERDTreeToggle<CR>
   let NERDTreeIgnore = ['\.pyc$', 'build', 'venv', 'egg', 'egg-info/', 'dist', 'docs']
 " }}}
 
-" vim-gutter
+" vim-gitgutter
   let g:gitgutter_map_keys = 0
   let g:gitgutter_max_signs = 200
   let g:gitgutter_realtime = 1
@@ -179,22 +217,6 @@ nnoremap <leader>bq :bp <BAR> bd #<CR>
 
 " Mundo
   nnoremap <leader>u :MundoToggle<CR>
-
-" vim-gutentags
-  let g:gutentags_ctags_exclude = [
-    \ '*.min.js',
-    \ '*html*',
-    \ 'jquery*.js',
-    \ '*/vendor/*',
-    \ '*/node_modules/*',
-    \ '*/python2.7/*',
-    \ '*/migrate/*.rb'
-    \ ]
-  let g:gutentags_generate_on_missing = 0
-  let g:gutentags_generate_on_write = 0
-  let g:gutentags_generate_on_new = 0
-  nnoremap <leader>t! :GutentagsUpdate!<CR>
-  set statusline+=%{gutentags#statusline()}
 
 " fzf {{{
   " use ag instead of find
