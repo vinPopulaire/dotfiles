@@ -38,6 +38,9 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+;; This sets the line spacing
+(setq-default line-spacing 1)
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -94,7 +97,6 @@
         (add-hook 'before-save-hook 'tide-format-before-save))
 
 (setq
- display-line-numbers-type 'relative
  projectile-project-search-path '("~/Projects/")
  org-log-done 'time
  org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
