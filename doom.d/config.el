@@ -179,9 +179,9 @@
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'quit-window-hook 'balance-windows)
-;; (defadvice! prompt-for-buffer (&rest _)
-;;   :after '(evil-window-split evil-window-vsplit)
-;;   (consult-buffer))
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit)
+  (projectile-find-file))
 
 (eval-after-load "flyspell"
     '(progn
@@ -200,3 +200,5 @@
 (map!
       :map calendar-mode-map
       :n "e" #'org-journal-read-entry)
+
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
