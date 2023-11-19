@@ -176,6 +176,10 @@
       :desc "Open todo document"
       "t" #'(lambda () (interactive) (find-file "~/org/todo.org")))
 
+(map! :leader
+      :desc "Open daily journal"
+      "n d" #'org-roam-dailies-goto-date)
+
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'quit-window-hook 'balance-windows)
@@ -203,7 +207,28 @@
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
+(defadvice rspec-compile (around rspec-compile-around)
+  "Use BASH shell for running the specs because of ZSH issues."
+  (let ((shell-file-name "/bin/bash"))
+    ad-do-it))
+
+(ad-activate 'rspec-compile)
+
 (advice-add 'evil-ex-search-next :after
             (lambda (&rest x) (evil-scroll-line-to-center (line-number-at-pos))))
 (advice-add 'evil-ex-search-previous :after
             (lambda (&rest x) (evil-scroll-line-to-center (line-number-at-pos))))
+
+(setq neo-window-width 55)
+
+(pixel-scroll-precision-mode t)
+
+;; Customize avy to search all windows
+(setq avy-all-windows t)
+
+;; Set dates in calendar to european
+(setq calendar-date-style 'european)
+
+(defun my/org-roam-dailies-find-date-format (date)
+  "Format DATE for use with org-roam-dailies-find-date."
+  (format-time-string "%d-%m-%Y" date)) ; Customize the date format here
