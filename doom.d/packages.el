@@ -53,3 +53,5 @@
 (package! balanced-windows)
 
 (package! prettier)
+
+(package! coffee-mode)

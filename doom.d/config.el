@@ -180,6 +180,10 @@
       :desc "Open daily journal"
       "n d" #'org-roam-dailies-goto-date)
 
+(map! :leader
+      :desc "Search with avy with timer"
+      "f a" #'evil-avy-goto-char-timer)
+
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'quit-window-hook 'balance-windows)
