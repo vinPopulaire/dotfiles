@@ -197,13 +197,16 @@
        (define-key flyspell-mouse-map [mouse-3] #'undefined)))
 
 (after! org
-        (setq org-capture-templates
+  (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/org/todo.org"
-        "Inbox")
-                "* TODO %? %U \n"
-                :prepend t)
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
-                "* %?"))))
+                                           "Inbox")
+           "* TODO %? %U \n"
+           :prepend t)
+          ("i" "Ideas" entry (file+headline "~/org/ideas.org"
+                                            "Inbox")
+           "* %?")
+          ("j" "Journal" entry (file+datetree "~/org/journal.org")
+           "* %?"))))
 
 (map!
       :map calendar-mode-map
