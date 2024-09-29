@@ -55,3 +55,6 @@
 (package! prettier)
 
 (package! coffee-mode)
+
+(package! ellama)
+(package! llm)
