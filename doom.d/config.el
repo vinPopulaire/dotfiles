@@ -196,6 +196,8 @@
       :desc "Search with vertico/project-search"
       "/" #'+vertico/project-search)
 
+(map! "s-<f12>" #'prot-window-popup-org-capture)
+
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'quit-window-hook 'balance-windows)
@@ -298,3 +300,9 @@ Also see `prot-window-delete-popup-frame'." command)
   :config
   (unless (server-running-p)
     (server-start)))
+
+;;;; The emacsclient calls that need ot be bound to system-wide keys
+
+;; emacsclient -e '(prot-window-popup-org-capture)'
+;; emacsclient -e '(progn (x-focus-frame nil) (prot-window-popup-org-capture))'
+;; emacsclient -e '(prot-window-popup-tmr)'
