@@ -192,6 +192,10 @@
       :desc "Search with avy with timer"
       "f a" #'evil-avy-goto-char-timer)
 
+(map! :leader
+      :desc "Search with vertico/project-search"
+      "/" #'+vertico/project-search)
+
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'quit-window-hook 'balance-windows)
