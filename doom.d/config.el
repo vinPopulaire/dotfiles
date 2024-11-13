@@ -175,14 +175,19 @@
       "o c" #'calendar)
 
 (map! :leader
-      :prefix-map ("n o" . "open documents")
+      :prefix-map ("n n" . "open documents")
       :desc "Open Brag document"
       "b" #'(lambda () (interactive) (find-file "~/org/brag.org")))
 
 (map! :leader
-      :prefix-map ("n o" . "open documents")
+      :prefix-map ("n n" . "open documents")
       :desc "Open todo document"
       "t" #'(lambda () (interactive) (find-file "~/org/todo.org")))
+
+(map! :leader
+      :prefix-map ("n n" . "open documents")
+      :desc "Open requests"
+      "r" #'(lambda () (interactive) (find-file "~/org/requests.org")))
 
 (map! :leader
       :desc "Open daily journal"
