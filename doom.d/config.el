@@ -311,3 +311,7 @@ Also see `prot-window-delete-popup-frame'." command)
 ;; emacsclient -e '(prot-window-popup-org-capture)'
 ;; emacsclient -e '(progn (x-focus-frame nil) (prot-window-popup-org-capture))'
 ;; emacsclient -e '(prot-window-popup-tmr)'
+
+(after! org-agenda
+  ;; Add a hook to save all Org buffers after changing a TODO state
+  (add-hook 'org-after-todo-state-change-hook #'org-save-all-org-buffers))
