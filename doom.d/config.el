@@ -322,3 +322,35 @@ Also see `prot-window-delete-popup-frame'." command)
 (after! org-agenda
   ;; Add a hook to save all Org buffers after changing a TODO state
   (add-hook 'org-after-todo-state-change-hook #'org-save-all-org-buffers))
+
+;; Run unittests
+(defun run-python-buffer-unittest ()
+  "Run `python -m unittest` on the current buffer or project."
+  (interactive)
+  (let* ((default-directory (projectile-project-root))
+         (test-command (if buffer-file-name
+                           (format "python -m unittest %s"
+                                   (string-replace "/" "."
+                                                   (file-name-sans-extension
+                                                    (file-relative-name buffer-file-name default-directory))))
+                         "python -m unittest discover")))
+    (compile test-command)))
+
+(defun run-python-unittest ()
+  "Run `python -m unittest` on the current buffer or project."
+  (interactive)
+  (let* ((default-directory (projectile-project-root))
+         (test-command (if buffer-file-name (format "python -m unittest discover -t . -s tests -p '*_tests.py' -vc")
+                         "python -m unittest discover")))
+    (compile test-command)))
+
+;; Keybinding only active in python-mode
+(after! python
+  (map! :map python-mode-map
+        :localleader
+        :desc "Run Python buffer Unittests" "t s" #'run-python-buffer-unittest))
+
+(after! python
+  (map! :map python-mode-map
+        :localleader
+        :desc "Run Python Unittests" "t v" #'run-python-unittest))
