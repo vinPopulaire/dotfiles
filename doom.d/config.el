@@ -86,6 +86,13 @@
 ;; (after! org
 ;;   (org-link-set-parameters "yt" #'make-youtube-link)
 ;; )
+
+(let ((path-from-shell (replace-regexp-in-string
+                        "[ \t\n]*$" ""
+                        (shell-command-to-string "$SHELL --login -c 'echo $PATH'"))))
+  (setenv "PATH" path-from-shell)
+  (setq exec-path (split-string path-from-shell path-separator)))
+
 (use-package! balanced-windows
   :config
   (balanced-windows-mode))
@@ -101,8 +108,8 @@
            :chat-model "codellama:34b" :embedding-model "codellama:34b")))
 
 (if (locate-dominating-file default-directory ".prettierrc")
-        (prettier-mode +1)
-        (add-hook 'before-save-hook 'tide-format-before-save))
+    (prettier-mode +1)
+  (add-hook 'before-save-hook 'tide-format-before-save))
 
 (setq
  projectile-project-search-path '("~/Projects/")
@@ -120,7 +127,7 @@
  evil-split-window-below t
 
  auto-save-default t
-)
+ )
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
@@ -211,9 +218,9 @@
   (projectile-find-file))
 
 (eval-after-load "flyspell"
-    '(progn
-       (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
-       (define-key flyspell-mouse-map [mouse-3] #'undefined)))
+  '(progn
+     (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
+     (define-key flyspell-mouse-map [mouse-3] #'undefined)))
 
 (after! org
   (setq org-capture-templates
@@ -228,8 +235,8 @@
            "* %?"))))
 
 (map!
-      :map calendar-mode-map
-      :n "e" #'org-journal-read-entry)
+ :map calendar-mode-map
+ :n "e" #'org-journal-read-entry)
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
@@ -259,7 +266,7 @@
   "Format DATE for use with org-roam-dailies-find-date."
   (format-time-string "%d-%m-%Y" date)) ; Customize the date format here
 
-;Popup window functionality by Protesilaos also known as Prot
+                                        ;Popup window functionality by Protesilaos also known as Prot
 (defun prot-window-delete-popup-frame (&rest _)
   "Kill selected selected frame if it has parameter `prot-window-popup-frame'.
 Use this function via a hook."
