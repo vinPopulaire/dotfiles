@@ -1,0 +1,301 @@
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.minimap.enabled": false,
+    "window.customTitleBarVisibility": "never",
+    "zenMode.centerLayout": false, 
+    "zenMode.hideLineNumbers": false,
+    "editor.fontFamily": "JetBrains Mono",
+    "terminal.integrated.fontFamily": "monospace",
+    "projectManager.git.baseFolders": [
+        "~/Projects"
+    ],
+    "redhat.telemetry.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.editor.splitSizing": "distribute",
+    "workbench.list.defaultFindMatchType": "contiguous",
+    "workbench.editor.showTabs": "single",
+    "window.confirmSaveUntitledWorkspace": false,
+    "workbench.editor.labelFormat": "long",
+    "breadcrumbs.enabled": false,
+    "whichkey.delay": 2000,
+    "multiCommand.commands": [
+        {
+            "command": "closeSidebarAndPanel",
+            "sequence": [
+                "workbench.action.closeSidebar",
+                "workbench.action.closePanel",
+                "workbench.action.closeAuxiliaryBar",
+            ]
+        }
+    ],
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+         {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+        "editor.action.moveLinesDownAction"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction"
+            ]
+        },
+    ],
+    "vspacecode.bindingOverrides": [
+        {
+            "keys": "v",
+            "name": "Split",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "v",
+                    "name": "Split Editor",
+                    "type": "command",
+                    "command": "workbench.action.splitEditor",
+                },
+                {
+                    "key": "s",
+                    "name": "Split Editor Down",
+                    "type": "command",
+                    "command": "workbench.action.splitEditorDown",
+                }
+            ]
+        },
+        {
+            "keys": "o",
+            "name": "Open",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "p",
+                    "name": "Go to file in explorer",
+                    "type": "command",
+                    "command": "workbench.files.action.showActiveFileInExplorer",
+                },
+                {
+                    "key": "t",
+                    "name": "Open terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.toggleTerminal",
+                },
+                // {
+                //     "key": "p",
+                //     "name": "Toggle view/explorer view",
+                //     "type": "conditional",
+                //     "bindings": [
+                //         {
+                //             "key": "",
+                //             "name": "Show explorer view",
+                //             "type": "command",
+                //             "command": "workbench.view.explorer"
+                //         },
+                //         {
+                //             "key": "when:sideBarVisible && explorerViewletVisible",
+                //             "name": "Hide side bar",
+                //             "type": "command",
+                //             "command": "workbench.action.toggleSidebarVisibility"
+                //         }
+                //     ]
+                // },
+            ]
+        },
+        {
+            "keys": "w.q",
+            "name": "Close window group",
+            "type": "command",
+            "command": "workbench.action.closeUnmodifiedEditors"
+        },
+        {
+            "keys": "b.q",
+            "name": "Close active buffer",
+            "type": "command",
+            "command": "workbench.action.closeActiveEditor"
+        },
+        {
+            "keys": "p.p",
+            "name": "Open project",
+            "type": "command",
+            "command": "projectManager.listProjects"
+        },
+        {
+            "keys": "p.a",
+            "name": "Save project",
+            "type": "command",
+            "command": "projectManager.saveProject"
+        },
+        {
+            "keys": "p.o",
+            "name": "Open project in new window",
+            "type": "command",
+            "command": "projectManager.listProjectsNewWindow"
+        },
+        {
+            "keys": "f.f",
+            "name": "Go to file",
+            "type": "command",
+            "command": "workbench.action.quickOpen"
+        },
+        // {
+        //     "keys": "q.q",
+        //     "name": "Close sidebar and panel",
+        //     "type": "command",
+        //     "command": "closeSidebarAndPanel"
+        // },
+        {
+            "keys": "q.q",
+            "name": "Toggle panel",
+            "type": "command",
+            "command": "workbench.action.togglePanel"
+        },
+        {
+            "keys": "t.t",
+            "name": "Toggle sidebar",
+            "type": "command",
+            "command": "workbench.action.toggleSidebarVisibility"
+        },
+        {
+            "keys": "g.g",
+            "name": "Magit status",
+            "type": "command",
+            "command": "magit.status"
+        },
+        {
+            "keys": "g.L",
+            "name": "Magit log file",
+            "type": "command",
+            "command": "magit.log-file"
+        },
+        {
+            "keys": "c.d",
+            "name": "Go to definition",
+            "type": "command",
+            "command": "editor.action.revealDefinition"
+        },
+        {
+            "keys": "c.D",
+            "name": "Go to references",
+            "type": "command",
+            "command": "editor.action.goToReferences"
+        },
+        {
+            "keys": "t.s",
+            "name": "Run test at cursor",
+            "type": "command",
+            "command": "testing.runAtCursor"
+        },
+        {
+            "keys": "t.S",
+            "name": "Debug test at cursor",
+            "type": "command",
+            "command": "testing.debugAtCursor"
+        },
+        {
+            "keys": "t.v",
+            "name": "Run test at buffer",
+            "type": "command",
+            "command": "testing.runCurrentFile"
+        },
+        {
+            "keys": "t.b",
+            "name": "Toggle breakpoint",
+            "type": "command",
+            "command": "editor.debug.action.toggleBreakpoint"
+        },
+        {
+            "keys": "g.o",
+            "name": "Open...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "o",
+                    "name": "Open file on remote",
+                    "type": "command",
+                    "command": "gitlens.openFileOnRemote",
+                },
+                {
+                    "key": "s",
+                    "name": "Open branch on remote",
+                    "type": "command",
+                    "command": "gitlens.openBranchOnRemote",
+                },
+                {
+                    "key": "r",
+                    "name": "Open repository on remote",
+                    "type": "command",
+                    "command": "gitlens.openRepoOnRemote",
+                },
+                {
+                    "key": "p",
+                    "name": "Open pull request on remote",
+                    "type": "command",
+                    "command": "gitlens.openPullRequestOnRemote",
+                },
+            ]
+        }
+    ]
+}
