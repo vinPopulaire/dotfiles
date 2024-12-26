@@ -1,0 +1,112 @@
+[
+	{
+		"key": "ctrl+l",
+		"command": "workbench.action.navigateRight",
+	},
+	{
+		"key": "ctrl+h",
+		"command": "workbench.action.navigateLeft",
+	},
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.navigateUp",
+	},
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.navigateDown",
+	},
+	{
+		"key": "ctrl+w ctrl+l",
+		"command": "workbench.action.moveActiveEditorGroupRight",
+	},
+	{
+		"key": "ctrl+w ctrl+h",
+		"command": "workbench.action.moveActiveEditorGroupLeft",
+	},
+	{
+		"key": "ctrl+w ctrl+k",
+		"command": "workbench.action.moveActiveEditorGroupUp",
+	},
+	{
+		"key": "ctrl+w ctrl+j",
+		"command": "workbench.action.moveActiveEditorGroupDown",
+	},
+	{
+		"key": "ctrl+shift+n",
+		"command": "search.action.focusNextSearchResult",
+		"when": "hasSearchResult || inSearchEditor"
+	},
+	{
+		"key": "ctrl+shift+p",
+		"command": "search.action.focusPreviousSearchResult",
+		"when": "hasSearchResult || inSearchEditor"
+	},
+	{
+		"key": "g g",
+		"command": "cursorTop",
+		"when": "editorTextFocus && editorLangId == 'magit' && neovim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+	},
+	{
+		"key": "g r",
+		"command": "magit.refresh",
+		"when": "editorTextFocus && editorLangId == 'magit' && neovim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+	},
+	{
+		"key": "tab",
+		"command": "extension.vim_tab",
+		"when": "editorTextFocus && neovim.active && !inDebugRepl && neovim.mode != insert && editorLangId != 'magit'"
+	},
+	{
+		"key": "tab",
+		"command": "-extension.vim_tab"
+	},
+	{
+		"key": "x",
+		"command": "magit.discard-at-point",
+		"when": "editorTextFocus && editorLangId == 'magit' && neovim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+	},
+	{
+		"key": "k",
+		"command": "-magit.discard-at-point"
+	},
+	{
+		"key": "-",
+		"command": "magit.reverse-at-point",
+		"when": "editorTextFocus && editorLangId == 'magit' && neovim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+	},
+	{
+		"key": "v",
+		"command": "-magit.reverse-at-point"
+	},
+	{
+		"key": "shift+-",
+		"command": "magit.reverting",
+		"when": "editorTextFocus && editorLangId == 'magit' && neovim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+	},
+	{
+		"key": "shift+v",
+		"command": "-magit.reverting"
+	},
+	{
+		"key": "shift+o",
+		"command": "magit.resetting",
+		"when": "editorTextFocus && editorLangId == 'magit' && neovim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+	},
+	{
+		"key": "shift+x",
+		"command": "-magit.resetting"
+	},
+	{
+		"key": "x",
+		"command": "-magit.reset-mixed"
+	},
+	{
+		"key": "ctrl+u x",
+		"command": "-magit.reset-hard"
+	},
+	{
+		"key": "tab",
+		"command": "magit.toggle-fold",
+		"when": "editorTextFocus && editorLangId == 'magit' && neovim.mode == normal",
+	},
+]

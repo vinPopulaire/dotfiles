@@ -1,6 +1,8 @@
 {
-    "workbench.colorTheme": "One Dark Pro",
-    "editor.minimap.enabled": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
     "window.customTitleBarVisibility": "never",
     "zenMode.centerLayout": false, 
     "zenMode.hideLineNumbers": false,
@@ -16,18 +18,9 @@
     "workbench.editor.showTabs": "single",
     "window.confirmSaveUntitledWorkspace": false,
     "workbench.editor.labelFormat": "long",
-    "breadcrumbs.enabled": false,
     "whichkey.delay": 2000,
-    "multiCommand.commands": [
-        {
-            "command": "closeSidebarAndPanel",
-            "sequence": [
-                "workbench.action.closeSidebar",
-                "workbench.action.closePanel",
-                "workbench.action.closeAuxiliaryBar",
-            ]
-        }
-    ],
+    "vscode-neovim.neovimExecutablePaths.darwin" : "/opt/homebrew/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin" : "$HOME/.config/nvim/init.lua",
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -297,5 +290,12 @@
                 },
             ]
         }
-    ]
+    ],
+    "Notes.notesLocation": "~/Documents/Notes",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Dracula Theme",
 }
+
