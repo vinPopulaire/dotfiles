@@ -31,7 +31,8 @@ keymap("n", "<Esc>", "<Esc>:noh<CR>", opts)
 -- call vscode commands from neovim
 
 -- general keymaps
-keymap({"n", "v"}, "<leader>a", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>")
+keymap({"n", "v"}, "<leader>aa", "<cmd>lua require('vscode').action('editor.action.showHover')<CR>")
+keymap({"n", "v"}, "<leader>af", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>")
 
 keymap({"n", "v"}, "<leader>bb", "<cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
 keymap({"n", "v"}, "<leader>bq", "<cmd>lua require('vscode').action('workbench.action.closeActiveEditor')<CR>")
@@ -53,7 +54,9 @@ keymap({"n", "v"}, "<leader>gb", "<cmd>lua require('vscode').action('magit.blame
 keymap({"n", "v"}, "<leader>gc", "<cmd>lua require('vscode').action('gitlens.copyRemoteFileUrlToClipboard')<CR>")
 keymap({"n", "v"}, "<leader>gL", "<cmd>lua require('vscode').action('magit.log-file')<CR>")
 keymap({"n", "v"}, "<leader>gg", "<cmd>lua require('vscode').action('magit.status')<CR>")
-keymap({"n", "v"}, "<leader>goo", "<cmd>lua require('vscode').action('gitlens.openFileOnRemote')<CR>")
+keymap({"n", "v"}, "<leader>go", "<cmd>lua require('vscode').action('gitlens.openFileOnRemote')<CR>")
+keymap({"n", "v"}, "<leader>gR", "<cmd>lua require('vscode').action('gitlens.openRepoOnRemote')<CR>")
+keymap({"n", "v"}, "<leader>gp", "<cmd>lua require('vscode').action('gitlens.openPullRequestOnRemote')<CR>")
 
 
 keymap({"n", "v"}, "<leader>ha", "<cmd>lua require('vscode').action('vscode-harpoon.addEditor')<CR>")
@@ -73,6 +76,7 @@ keymap({"n", "v"}, "<leader>ot", "<cmd>lua require('vscode').action('workbench.a
 keymap({"n", "v"}, "<leader>op", "<cmd>lua require('vscode').action('workbench.view.explorer')<CR>")
 keymap({"n", "v"}, "<leader>od", "<cmd>lua require('vscode').action('workbench.debug.action.focusRepl')<CR>")
 keymap({"n", "v"}, "<leader>os", "<cmd>lua require('vscode').action('workbench.view.testing.focus')<CR>")
+keymap({"n", "v"}, "<leader>og", "<cmd>lua require('vscode').action('workbench.action.focusAuxiliaryBar')<CR>")
 
 keymap({"n", "v"}, "<leader>pp", "<cmd>lua require('vscode').action('projectManager.listProjects')<CR>")
 keymap({"n", "v"}, "<leader>pa", "<cmd>lua require('vscode').action('projectManager.saveProject')<CR>")
@@ -81,6 +85,7 @@ keymap({"n", "v"}, "<leader>pe", "<cmd>lua require('vscode').action('projectMana
 
 keymap({"n", "v"}, "<leader>qp", "<cmd>lua require('vscode').action('workbench.action.closePanel')<CR>")
 keymap({"n", "v"}, "<leader>qq", "<cmd>lua require('vscode').action('workbench.action.closeSidebar')<CR>")
+keymap({"n", "v"}, "<leader>qg", "<cmd>lua require('vscode').action('workbench.action.closeAuxiliaryBar')<CR>")
 
 keymap({"n", "v"}, "<leader>sp", "<cmd>lua require('vscode').action('workbench.actions.view.problems')<CR>")
 
