@@ -4,13 +4,9 @@ local opts = { noremap = true, silent = true }
 -- remap leader key
 keymap("n", "<Space>", "", opts)
 
+keymap("n", "<leader><leader>", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>", opts)
+
 vim.o.clipboard = "unnamedplus"
-
--- yank to system clipboard
-keymap({"n", "v"}, "<leader>y", '"+y', opts)
-
--- paste from system clipboard
-keymap({"n", "v"}, "<leader>p", '"+p', opts)
 
 -- better indent handling
 keymap("v", "<", "<gv", opts)
