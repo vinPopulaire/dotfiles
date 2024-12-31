@@ -34,8 +34,6 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -47,6 +45,8 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 12))
+(setq doom-symbol-font (font-spec :family "JetBrainsMono Nerd Font" :size 12))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
