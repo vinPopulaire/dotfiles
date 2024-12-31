@@ -208,6 +208,38 @@
 
 (map! "s-<f12>" #'prot-window-popup-org-capture)
 
+(map! :map dap-mode-map
+      :leader
+      :prefix ("d" . "dap")
+      ;; basics
+      :desc "dap next"          "n" #'dap-next
+      :desc "dap step in"       "i" #'dap-step-in
+      :desc "dap step out"      "o" #'dap-step-out
+      :desc "dap continue"      "c" #'dap-continue
+      :desc "dap hydra"         "l" #'dap-hydra
+      :desc "dap debug restart" "r" #'dap-debug-restart
+      :desc "dap debug"         "d" #'dap-debug
+      :desc "dap repl"          "p" #'dap-ui-repl
+
+      ;; debug
+      :prefix ("ds" . "Debug")
+      :desc "dap debug recent"  "r" #'dap-debug-recent
+      :desc "dap debug last"    "l" #'dap-debug-last
+
+      ;; eval
+      :prefix ("de" . "Eval")
+      :desc "eval"                "e" #'dap-eval
+      :desc "eval region"         "r" #'dap-eval-region
+      :desc "eval thing at point" "s" #'dap-eval-thing-at-point
+      :desc "add expression"      "a" #'dap-ui-expressions-add
+      :desc "remove expression"   "d" #'dap-ui-expressions-remove
+
+      :prefix ("db" . "Breakpoint")
+      :desc "dap breakpoint toggle"      "b" #'dap-breakpoint-toggle
+      :desc "dap breakpoint condition"   "c" #'dap-breakpoint-condition
+      :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
+      :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
+
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'quit-window-hook 'balance-windows)
@@ -352,3 +384,17 @@ Also see `prot-window-delete-popup-frame'." command)
   (map! :map python-mode-map
         :localleader
         :desc "Run Python Unittests" "t A" #'run-python-unittest))
+
+(add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra)))
+
+(use-package! dap-mode
+  :after lsp-mode
+  :config
+  (dap-auto-configure-mode)
+  )
+
+(after! dap-mode
+  (require 'dap-python)
+  (setq dap-python-debugger 'debugpy)
+  )
