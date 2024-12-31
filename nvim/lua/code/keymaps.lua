@@ -30,8 +30,9 @@ keymap("n", "<Esc>", "<Esc>:noh<CR>", opts)
 keymap({"n", "v"}, "<leader>aa", "<cmd>lua require('vscode').action('editor.action.showHover')<CR>")
 keymap({"n", "v"}, "<leader>af", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>")
 
-keymap({"n", "v"}, "<leader>bb", "<cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
+keymap({"n", "v"}, "<leader>bb", "<cmd>lua require('vscode').action('workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup')<CR>")
 keymap({"n", "v"}, "<leader>bq", "<cmd>lua require('vscode').action('workbench.action.closeActiveEditor')<CR>")
+
 
 keymap({"n", "v"}, "<leader>cd", "<cmd>lua require('vscode').action('editor.action.revealDefinition')<CR>")
 keymap({"n", "v"}, "<leader>cD", "<cmd>lua require('vscode').action('editor.action.goToReferences')<CR>")
@@ -42,9 +43,9 @@ keymap({"n", "v"}, "<leader>d", "<cmd>lua require('vscode').action('editor.actio
 
 keymap({"n", "v"}, "<leader>fd", "<cmd>lua require('vscode').action('editor.action.formatDocument')<CR>")
 keymap({"n", "v"}, "<leader>ff", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>")
-
 keymap({"n", "v"}, "<leader>fk", "<cmd>lua require('vscode').action('workbench.action.openGlobalKeybindings')<CR>")
 keymap({"n", "v"}, "<leader>fs", "<cmd>lua require('vscode').action('workbench.action.files.save')<CR>")
+
 
 keymap({"n", "v"}, "<leader>gb", "<cmd>lua require('vscode').action('magit.blame-file')<CR>")
 keymap({"n", "v"}, "<leader>gc", "<cmd>lua require('vscode').action('gitlens.copyRemoteFileUrlToClipboard')<CR>")
@@ -85,6 +86,7 @@ keymap({"n", "v"}, "<leader>qg", "<cmd>lua require('vscode').action('workbench.a
 
 keymap({"n", "v"}, "<leader>sp", "<cmd>lua require('vscode').action('workbench.actions.view.problems')<CR>")
 
+keymap({"n", "v"}, "<leader>tb", "<cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
 keymap({"n", "v"}, "<leader>ts", "<cmd>lua require('vscode').action('testing.runAtCursor')<CR>")
 keymap({"n", "v"}, "<leader>tS", "<cmd>lua require('vscode').action('testing.debugAtCursor')<CR>")
 keymap({"n", "v"}, "<leader>tv", "<cmd>lua require('vscode').action('testing.runCurrentFile')<CR>")

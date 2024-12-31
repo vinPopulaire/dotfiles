@@ -6,7 +6,7 @@
     "window.customTitleBarVisibility": "never",
     "zenMode.centerLayout": false, 
     "zenMode.hideLineNumbers": false,
-    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
     "terminal.integrated.fontFamily": "monospace",
     "projectManager.git.baseFolders": [
         "~/Projects"
