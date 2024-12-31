@@ -95,10 +95,6 @@
   (setenv "PATH" path-from-shell)
   (setq exec-path (split-string path-from-shell path-separator)))
 
-(use-package! balanced-windows
-  :config
-  (balanced-windows-mode))
-
 (use-package prettier)
 
 (use-package ellama
@@ -350,9 +346,9 @@ Also see `prot-window-delete-popup-frame'." command)
 (after! python
   (map! :map python-mode-map
         :localleader
-        :desc "Run Python buffer Unittests" "t s" #'run-python-buffer-unittest))
+        :desc "Run Python buffer Unittests" "t v" #'run-python-buffer-unittest))
 
 (after! python
   (map! :map python-mode-map
         :localleader
-        :desc "Run Python Unittests" "t v" #'run-python-unittest))
+        :desc "Run Python Unittests" "t A" #'run-python-unittest))
