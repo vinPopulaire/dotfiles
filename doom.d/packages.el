@@ -50,7 +50,6 @@
 ;(unpin! t)
 
 (package! evil-escape :disable t)
-(package! balanced-windows)
 
 (package! prettier)
 
