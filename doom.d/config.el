@@ -388,7 +388,7 @@ Also see `prot-window-delete-popup-frame'." command)
   :config
   (dap-auto-configure-mode))
 
-(after! dap-mode
+(after! (:and dap-mode python)
   (require 'dap-python)
   (setq dap-python-debugger 'debugpy)
 
@@ -399,7 +399,7 @@ Also see `prot-window-delete-popup-frame'." command)
       (if test-method
           (dap-debug
            (list :type "python"
-                 :args (format "%s::%s" (buffer-file-name) test-method)
+                 :args (format "--color=yes %s::%s" (buffer-file-name) test-method)
                  :cwd nil
                  :module "pytest"
                  :request "launch"
