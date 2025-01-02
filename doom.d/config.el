@@ -216,15 +216,13 @@
       :desc "dap step in"       "i" #'dap-step-in
       :desc "dap step out"      "o" #'dap-step-out
       :desc "dap continue"      "c" #'dap-continue
-      :desc "dap hydra"         "l" #'dap-hydra
+      :desc "dap hydra"         "h" #'dap-hydra
       :desc "dap debug restart" "r" #'dap-debug-restart
       :desc "dap debug"         "d" #'dap-debug
       :desc "dap repl"          "p" #'dap-ui-repl
-
-      ;; debug
-      :prefix ("ds" . "Debug")
-      :desc "dap debug recent"  "r" #'dap-debug-recent
       :desc "dap debug last"    "l" #'dap-debug-last
+      :desc "dap debug recent"  "r" #'dap-debug-recent
+      :desc "dap debug test"    "s" #'my/dap-python-test-at-point
 
       ;; eval
       :prefix ("de" . "Eval")
@@ -385,16 +383,26 @@ Also see `prot-window-delete-popup-frame'." command)
         :localleader
         :desc "Run Python Unittests" "t A" #'run-python-unittest))
 
-(add-hook 'dap-stopped-hook
-          (lambda (arg) (call-interactively #'dap-hydra)))
-
 (use-package! dap-mode
   :after lsp-mode
   :config
-  (dap-auto-configure-mode)
-  )
+  (dap-auto-configure-mode))
 
 (after! dap-mode
   (require 'dap-python)
   (setq dap-python-debugger 'debugpy)
-  )
+
+  (defun my/dap-python-test-at-point ()
+    "Run unittest for the test under the cursor."
+    (interactive)
+    (let ((test-method (replace-regexp-in-string "\\." "::"(python-info-current-defun))))
+      (if test-method
+          (dap-debug
+           (list :type "python"
+                 :args (format "%s::%s" (buffer-file-name) test-method)
+                 :cwd nil
+                 :module "pytest"
+                 :request "launch"
+                 :debugger 'debugpy
+                 :name (format "Python :: Test %s" test-method)))
+        (message "No test method found at point!")))))
