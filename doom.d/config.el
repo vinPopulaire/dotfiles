@@ -206,6 +206,10 @@
       :desc "Search with vertico/project-search"
       "/" #'+vertico/project-search)
 
+(map! :leader
+      :desc "Expand diff show hunk"
+      "g h" #'diff-hl-show-hunk)
+
 (map! "s-<f12>" #'prot-window-popup-org-capture)
 
 (map! :map dap-mode-map
@@ -376,12 +380,10 @@ Also see `prot-window-delete-popup-frame'." command)
 (after! python
   (map! :map python-mode-map
         :localleader
-        :desc "Run Python buffer Unittests" "t v" #'run-python-buffer-unittest))
-
-(after! python
-  (map! :map python-mode-map
-        :localleader
-        :desc "Run Python Unittests" "t A" #'run-python-unittest))
+        :desc "Run Python buffer Unittests" "t v" #'run-python-buffer-unittest
+        :desc "Run Python Unittests" "t A" #'run-python-unittest
+        :desc "Deactivate environment" "d" #'pyvenv-deactivate
+        :desc "Activate environment with .venv" "a" (lambda () (interactive) (pyvenv-activate (concat (projectile-project-root) ".venv")))))
 
 (use-package! dap-mode
   :after lsp-mode
