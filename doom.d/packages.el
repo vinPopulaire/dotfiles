@@ -57,3 +57,5 @@
 
 (package! ellama)
 (package! llm)
+
+(package! mocha)

@@ -385,6 +385,18 @@ Also see `prot-window-delete-popup-frame'." command)
         :desc "Deactivate environment" "d" #'pyvenv-deactivate
         :desc "Activate environment with .venv" "a" (lambda () (interactive) (pyvenv-activate (concat (projectile-project-root) ".venv")))))
 
+;; Mocha configuration
+(use-package! mocha
+  :after rjsx-mode
+  :config
+  (map! :localleader
+        :map rjsx-mode-map
+        "t a" #'mocha-test-project
+        "t f" #'mocha-test-file
+        "t s" #'mocha-test-at-point
+        "t d" #'mocha-debug
+        :desc "Activate node version" "a" #'nvm-use))
+
 (use-package! dap-mode
   :after lsp-mode
   :config
