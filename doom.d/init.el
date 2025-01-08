@@ -161,6 +161,7 @@
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        (python
+        +lsp
         +dap
         +pyright
         )                                  ; beautiful is better than ugly
