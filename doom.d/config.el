@@ -385,6 +385,15 @@ Also see `prot-window-delete-popup-frame'." command)
         :desc "Deactivate environment" "d" #'pyvenv-deactivate
         :desc "Activate environment with .venv" "a" (lambda () (interactive) (pyvenv-activate (concat (projectile-project-root) ".venv")))))
 
+(after! (:and lsp-mode ruby-mode)
+  (add-to-list 'lsp-language-id-configuration '(ruby-mode . "ruby"))
+
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection '("ruby-lsp"))
+    :major-modes '(ruby-mode)
+    :server-id 'ruby-lsp)))
+
 ;; Mocha configuration
 (use-package! mocha
   :after rjsx-mode
