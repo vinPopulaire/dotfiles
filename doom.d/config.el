@@ -243,6 +243,11 @@
       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
 
+(map! :leader
+      :desc "Run bump-patch" "m b p" #'(lambda () (interactive) (async-shell-command "make bump-patch"))
+      :desc "Run bump-minor" "m b m" #'(lambda () (interactive) (async-shell-command "make bump-minor"))
+      :desc "Run bump-major" "m b M" #'(lambda () (interactive) (async-shell-command "make bump-major")))
+
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'quit-window-hook 'balance-windows)
