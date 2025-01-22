@@ -226,6 +226,7 @@
       :desc "dap repl"          "p" #'dap-ui-repl
       :desc "dap debug last"    "l" #'dap-debug-last
       :desc "dap debug recent"  "r" #'dap-debug-recent
+      :desc "dap disconnect"    "q" #'dap-disconnect
       :desc "dap debug test"    "s" #'my/dap-python-test-at-point
 
       ;; eval
