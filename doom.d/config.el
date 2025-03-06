@@ -243,10 +243,15 @@
       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
 
+(defun my/run-make-command (target)
+  ;; Run 'make <target>' in the project root.
+  (let ((default-directory (projectile-project-root)))
+    (async-shell-command (format "make %s" target))))
+
 (map! :leader
-      :desc "Run bump-patch" "m b p" #'(lambda () (interactive) (async-shell-command "make bump-patch"))
-      :desc "Run bump-minor" "m b m" #'(lambda () (interactive) (async-shell-command "make bump-minor"))
-      :desc "Run bump-major" "m b M" #'(lambda () (interactive) (async-shell-command "make bump-major")))
+      :desc "Run bump-patch" "m b p" #'(lambda () (interactive) (my/run-make-command "bump-patch"))
+      :desc "Run bump-minor" "m b m" #'(lambda () (interactive) (my/run-make-command "bump-minor"))
+      :desc "Run bump-major" "m b M" #'(lambda () (interactive) (my/run-make-command "bump-major")))
 
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
