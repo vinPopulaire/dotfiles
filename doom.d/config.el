@@ -449,3 +449,18 @@ Also see `prot-window-delete-popup-frame'." command)
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(defhydra my-window-resize (:hint nil)
+  "
+  Resize Window
+  _-_ shrink height   _+_ increase height
+  _<_ shrink width    _>_ increase width
+  _q_ quit
+  "
+  ("-" evil-window-decrease-height)
+  ("+" evil-window-increase-height)
+  ("<" evil-window-decrease-width)
+  (">" evil-window-increase-width)
+  ("q" nil "quit" :exit t))
+
+(map! :leader "w r" #'my-window-resize/body)
