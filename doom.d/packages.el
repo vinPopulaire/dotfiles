@@ -55,7 +55,6 @@
 
 (package! coffee-mode)
 
-(package! ellama)
 (package! llm)
 
 (package! mocha)

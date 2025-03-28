@@ -97,14 +97,6 @@
 
 (use-package prettier)
 
-(use-package ellama
-  :init
-  (setopt ellama-language "English")
-  (require 'llm-ollama)
-  (setopt ellama-provider
-          (make-llm-ollama
-           :chat-model "codellama:34b" :embedding-model "codellama:34b")))
-
 (if (locate-dominating-file default-directory ".prettierrc")
     (prettier-mode +1)
   (add-hook 'before-save-hook 'tide-format-before-save))
