@@ -61,3 +61,8 @@
 
 (package! copilot
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
+
+(package! catppuccin-theme)
+
+;; (package! copilot-chat
+;;   :recipe (:host github :repo "copilot-emacs/copilot-chat" :files ("*.el" "dist")))
