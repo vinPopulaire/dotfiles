@@ -204,6 +204,11 @@
 
 (map! "s-<f12>" #'prot-window-popup-org-capture)
 
+(after! dape
+  (setq dape-setup-defaults nil))  ;; if dape is being loaded
+
+(map! :leader "d" nil) ; unbind top-level dape prefix
+
 (map! :map dap-mode-map
       :leader
       :prefix ("d" . "dap")
