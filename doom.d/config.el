@@ -183,6 +183,11 @@
 
 (map! :leader
       :prefix-map ("n n" . "open documents")
+      :desc "Open notebook"
+      "n" #'(lambda () (interactive) (find-file "~/org/notebook.org")))
+
+(map! :leader
+      :prefix-map ("n n" . "open documents")
       :desc "Open requests"
       "r" #'(lambda () (interactive) (find-file "~/org/requests.org")))
 
