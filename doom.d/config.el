@@ -384,9 +384,7 @@ Also see `prot-window-delete-popup-frame'." command)
   (map! :map python-mode-map
         :localleader
         :desc "Run Python buffer Unittests" "t v" #'run-python-buffer-unittest
-        :desc "Run Python Unittests" "t A" #'run-python-unittest
-        :desc "Deactivate environment" "d" #'pyvenv-deactivate
-        :desc "Activate environment with .venv" "a" (lambda () (interactive) (pyvenv-activate (concat (projectile-project-root) ".venv")))))
+        :desc "Run Python Unittests" "t A" #'run-python-unittest))
 
 (after! (:and lsp-mode ruby-mode)
   (add-to-list 'lsp-language-id-configuration '(ruby-mode . "ruby"))
